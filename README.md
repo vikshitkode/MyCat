@@ -1,2 +1,7 @@
-![catimg](https://github.com/user-attachments/assets/3bb25f77-9fff-482e-9efb-c934f5609dbb)
-This App displays Adorable Pictures of Cats retrieved from Cat API and when the user taps on the Image it flips to show an interesting fact about cats.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3bb25f77-9fff-482e-9efb-c934f5609dbb" alt="Cat App Screenshot" width="350"/>
+</p>
+
+<p align="center">
+  This app displays adorable pictures of cats retrieved from the Cat API. When the user taps on an image, it flips to show an interesting fact about cats.
+</p>
