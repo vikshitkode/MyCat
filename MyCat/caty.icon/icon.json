@@ -1,0 +1,41 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:1.00000,1.00000,1.00000,1.00000",
+      "srgb:1.00000,1.00000,1.00000,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "glass" : false,
+          "image-name" : "catimg.jpg",
+          "name" : "catimg",
+          "position" : {
+            "scale" : 1.58,
+            "translation-in-points" : [
+              0.4765625,
+              1.328125
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
