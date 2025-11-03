@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct CatHomeView: View {
     
     @State private var cats: [CatModel] = []
+    let aboutTip = AboutTip()
     
     var body: some View {
         NavigationStack {
@@ -35,7 +37,6 @@ struct CatHomeView: View {
                     print("Something went wrong \(error.localizedDescription)")
                 }
             }
-            // 👇 Move toolbar inside NavigationStack
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
@@ -43,7 +44,7 @@ struct CatHomeView: View {
                     } label: {
                         Image(systemName: "info.circle.fill")
                             .foregroundStyle(Color.catColor)
-                    }
+                    }.popoverTip(aboutTip, arrowEdge: .top)
                 }
             }
             .tint(Color.catColor)

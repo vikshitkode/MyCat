@@ -21,7 +21,7 @@ struct CatFlipCardView: View {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.catColor)
                     .overlay(
-                        VStack(spacing: 10) {
+                        VStack(alignment: .center, spacing: 8) {
                             Text("Did you know?")
                                 .font(.headline)
                                 .foregroundStyle(.white)

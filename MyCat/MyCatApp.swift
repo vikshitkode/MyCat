@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct MyCatApp: App {
@@ -13,5 +14,9 @@ struct MyCatApp: App {
         WindowGroup {
             CatHomeView().tint(Color.catColor)
         }
+    }
+    init () {
+        try? Tips.resetDatastore()
+        try? Tips.configure()
     }
 }
