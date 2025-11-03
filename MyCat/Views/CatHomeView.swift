@@ -10,6 +10,7 @@ import TipKit
 
 struct CatHomeView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @State private var cats: [CatModel] = []
     let aboutTip = AboutTip()
     
@@ -43,12 +44,11 @@ struct CatHomeView: View {
                         CatAboutView()
                     } label: {
                         Image(systemName: "info.circle.fill")
-                            .foregroundStyle(Color.catColor)
-                    }.popoverTip(aboutTip, arrowEdge: .top)
+                    }
+                    .popoverTip(aboutTip, arrowEdge: .top)
                 }
             }
-            .tint(Color.catColor)
-        }
+        }.tint(colorScheme == .dark ? .orange : .catColor)
     }
 }
 
