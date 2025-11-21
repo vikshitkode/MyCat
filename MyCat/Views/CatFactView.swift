@@ -12,28 +12,46 @@ struct CatFactView: View {
     @State private var catFact: CatFactModel?
     
     var body: some View {
-            VStack {
-                if let fact = catFact {
-                    Text(fact.fact)
-                        .font(.title3).foregroundStyle(Color.white)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                        .background(Color.catColor)
-                        
-                } else {
-                    ProgressView("Loading Cat Fact...")
-                }
+        Group {
+            if let fact = catFact {
+                DynamicFactContainer(text: fact.fact)
+            } else {
+                ProgressView("Loading Cat Fact...")
+                    .foregroundColor(.white)
             }
-            .task {
-                do {
-                    catFact = try await fetchCatFact()
-                } catch {
-                    print("Error fetching cat fact: \(error.localizedDescription)")
-                }
-            }.padding()
-        
+        }
+        .task {
+            catFact = try? await fetchCatFact()
+        }
     }
 }
+
+struct DynamicFactContainer: View {
+    let text: String
+
+    var body: some View {
+        GeometryReader { geo in
+            ScrollView {
+                VStack {
+                    Text(text)
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 12)
+
+                    Spacer()
+                }
+                .frame(
+                    maxWidth: .infinity,
+                    minHeight: geo.size.height,
+                    alignment: .top
+                )
+            }
+        }
+        .frame(height: 180)
+    }
+}
+
 
 #Preview {
     CatFactView()

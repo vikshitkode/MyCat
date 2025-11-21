@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CatFlipCardView: View {
+    
     let cat: CatModel
     @State private var flipped = false
     @State private var rotation = 0.0
@@ -17,26 +18,30 @@ struct CatFlipCardView: View {
         ZStack {
             if rotation <= 90 {
                 CatImageView(cat: cat)
+                    .frame(width: 300, height: 300)
             } else {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.catColor)
                     .overlay(
-                        VStack(alignment: .center, spacing: 8) {
+                        VStack(spacing: 8) {
+                            Spacer()
                             Text("Did you know?")
                                 .font(.headline)
                                 .foregroundStyle(.white)
                             
+                            Spacer()
+
                             CatFactView()
-                        }
+                        }.allowsHitTesting(false)
+                        .padding()
                     )
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             }
-        }.frame(width: 300, height: 300)
-            .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
-            .onTapGesture {
-                flipCard()
-            }
-            .padding()
+        }
+        .frame(width: 300, height: 300)
+        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+        .padding()
+        .onTapGesture { flipCard() }
     }
     
     private func flipCard() {

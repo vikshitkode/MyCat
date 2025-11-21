@@ -43,12 +43,14 @@ struct CatAboutView: View {
                     .padding(.bottom)
             }
             
-            Text(
-                "MyCat lets you explore random cat images from the Cat API. Enjoy scrolling through adorable cat photos and learn more about your favorite pets!"
-            )
-            .font(.system(size: 16, weight: .regular, design: .default))
-            .multilineTextAlignment(.center)
-            .padding()
+            Text("""
+                    MyCat lets you explore random cat images from the Cat API. Enjoy scrolling through adorable cat photos and learn more about your favorite pets!
+                    """)
+                    .font(.system(size: 16))
+                    .multilineTextAlignment(.center)
+                    .lineLimit(nil)
+                    .frame(maxWidth: 450)
+                    .padding(.horizontal)
         }
         .padding()
     }
